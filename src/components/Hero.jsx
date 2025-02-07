@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="flex flex-col justify-center items-center mt-5"></div>
           <div>
             <ScrollAnimation>
-              <h1 className="text-white text-2xl md:text-5xl font-serif font-bold  lg:text-7xl">
+              <h1 className="text-white text-2xl md:text-5xl md:pb-2 font-serif font-bold  lg:text-7xl">
                 Hi, I'm a{" "}
                 <FlipWords
                   words={roles}
@@ -29,14 +29,14 @@ const Hero = () => {
               </h1>
             </ScrollAnimation>
             <ScrollAnimation delay={200}>
-              <p className="mt-2 text-white/70 text-md   md:text-3xl font-light">
+              <p className="mt-2 text-white/70 text-md md:leading-normal  md:text-3xl md:pb-6 font-light">
                 Translating aesthetic designs <br className="sm:block hidden" />
                 into seamless digital experiences.
               </p>
               <div>
                 <div className="flex flex-wrap gap-4 mt-6">
                   {technologies.map((tech) => (
-                    <div key={tech} className="relative">
+                    <div key={tech} className="relative ">
                      
                       <div className="absolute inset-0 -z-10">
                         <div className="absolute inset-0 bg-violet-200 rounded-full opacity-20 blur-xl animate-pulse" />
@@ -48,7 +48,7 @@ const Hero = () => {
                           }}
                         />
                       </div>
-                      <div className="relative px-4 py-1 rounded-full bg-black/20 backdrop-blur-sm border border-violet-200/30 text-violet-200 text-sm transition-all duration-300 hover:scale-105 hover:bg-black/30 hover:border-violet-200/50">
+                      <div className="relative px-4 py-1 md:text-lg rounded-full bg-black/20 backdrop-blur-sm border border-violet-200/30 text-violet-200 text-sm transition-all duration-300 hover:scale-105 hover:bg-black/30 hover:border-violet-200/50">
                         {tech}
                       </div>
 
@@ -68,7 +68,7 @@ const Hero = () => {
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={400}>
-              <div className="flex font-serif justify-evenly md:justify-start mt-7 relative z-30 gap-3 md:gap-5 items-center">
+              <div className="flex font-serif justify-evenly md:pt-6 md:justify-start mt-7 relative z-30 gap-3 md:gap-5 items-center">
                 <a
                   href={resume}
                   download="FalomoSharon_Resume.pdf"

@@ -33,7 +33,7 @@ const About = () => {
               <CardHeader
                 title="My Bio"
                 description="Know more about me"
-                className="lg:pb-2"
+                className="pb-5 lg:pb-2 lg:pl-6"
               />
 
               <BioContent studyType={studyType} />

@@ -66,13 +66,13 @@ const BioContent = ({ studyType }) => {
                   </h4>
                 </motion.div>
               </div>
-              <div className="overflow-y-auto max-h-[calc(70vh-100px)]">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.4 }}
-                  className="flex flex-col gap-6 px-6"
-                >
+              <div className="overflow-y-auto max-h-[70vh] touch-pan-y">
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.2, duration: 0.4 }}
+    className="flex flex-col gap-6 px-6"
+  >
                   <div className="text-violet-200/80 dark:text-neutral-300 leading-relaxed">
                     {studyType.split(". ").map((paragraph, idx) => (
                       <motion.p
