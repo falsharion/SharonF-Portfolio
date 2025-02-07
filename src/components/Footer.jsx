@@ -28,7 +28,7 @@ import {
   const Footer = () => {
     return (
 
-      <footer className="container mx-auto">
+      <footer className="container mx-auto md:pt-20 ">
         <div className="pt-20 sm:pt-30 pb-8  mt-20 border-t-2 border-white/40 border-primary-light dark:border-secondary-dark">
               <ScrollAnimation> 
           <div className="font-general-regular text-violet-300 flex flex-col justify-center items-center mb-12 sm:mb-28">

@@ -59,7 +59,7 @@ const TechGrid = () => {
       {toolkitItems.map((tech) => (
         <div
           key={tech.title}
-          className="flex flex-col w-24 h-28 md:w-32 md:h-32 p-3 md:p-4 items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300"
+          className="flex flex-col w-20 h-28 md:w-32 md:h-32 p-3 md:p-4 items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300"
         >
           <img
             src={tech.icon}

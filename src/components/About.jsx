@@ -57,7 +57,7 @@ const About = () => {
               />
             </Card>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 relative z-0 md:grid-cols-5 lg:grid-cols-3 gap-8">
             <Card className="h-[320px] rounded-3xl p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Beyond the code"

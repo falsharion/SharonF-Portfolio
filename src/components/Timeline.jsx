@@ -1,137 +1,73 @@
-import React, { Fragment, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
-const Circle = () => {
-  return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="bg-violet-200 relative z-10 rounded-full w-4 h-4 -ml-1"
-    ></motion.div>
-  );
-};
-
-const Pillar = ({ index, totalEvents, scrollProgress }) => {
-  const pillarProgress = useTransform(
-    scrollProgress,
-    [index / totalEvents, (index + 1) / totalEvents],
-    [0, 1]
-  );
-
-  return (
-    <div className="relative z-0 w-2 h-full mx-auto">
-      <div className="absolute  inset-0 bg-white/15 rounded-t-full rounded-b-full"></div>
-
-      <motion.div
-        style={{
-          scaleY: pillarProgress,
-          originY: "top",
-        }}
-        className="absolute inset-0 bg-gradient-to-b from-violet-900 to-violet-200 rounded-t-full rounded-b-full"
-      ></motion.div>
-    </div>
-  );
-};
-
-const EventCard = ({
-  heading,
-  subheading,
-  startyear,
-  endyear,
-  highlights,
-  direction,
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        stiffness: 100,
-      }}
-      viewport={{ once: true, amount: 0.1 }}
-      className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl flex flex-col gap-y-2 border-none shadow-md rounded-xl px-4"
-    >
-      <p className="text-violet-300 font-bold text-lg md:text-2xl lg:text-4xl border-b">
-        {heading}
-      </p>
-      <div className="md:flex font-serif items-center justify-between text-sm md:text-xl lg:text-2xl text-white/70">
-        {subheading}
-        <div className="md:text-sm lg:text-xl text-white/70">
-          {startyear} - {endyear}
-        </div>
-      </div>
-      <ul className="list-disc md:text-lg lg:text-lg list-inside text-sm text-gray-400 space-y-1">
-        {highlights.map((highlight, index) => (
-          <li key={index}>{highlight}</li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-};
+import React, { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 
 const Timeline = ({ events }) => {
+ const timelineRef = useRef(null);
+ const { scrollYProgress } = useScroll({
+   target: timelineRef,
+   offset: ["start end", "end start"],
+ });
 
-  const timelineRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start end", "end start"],
-  });
+ const itemVariants = {
+   hidden: { opacity: 0, x: 100 },
+   visible: { 
+     opacity: 1, 
+     x: 0,
+     transition: {
+       duration: 0.5,
+       ease: "easeOut"
+     }
+   }
+ };
 
-  return (
-    <motion.div
-      ref={timelineRef}
-      initial="hidden"
-      className=" relative flex flex-col gap-y-3 w-full my-4 lg:px-16"
-    >
-      <Circle />
-      {events.map((event, key) => (
-        <Fragment key={key}>
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 md:gap-x-6 items-center mx-auto">
-            {event.direction === "left" ? (
-              <>
-                <Pillar
-                  index={key}
-                  totalEvents={events.length}
-                  scrollProgress={scrollYProgress}
-                />
-                <EventCard
-                  heading={event.position}
-                  subheading={event.company}
-                  startyear={event.startDate}
-                  endyear={event.endDate}
-                  highlights={event.highlights}
-                  direction={event.direction}
-                />
-                <div></div>
-              </>
-            ) : (
-              <>
-                <div></div>
-                <Pillar
-                  index={key}
-                  totalEvents={events.length}
-                  scrollProgress={scrollYProgress}
-                />
-                <EventCard
-                  heading={event.position}
-                  subheading={event.company}
-                  startyear={event.startDate}
-                  endyear={event.endDate}
-                  highlights={event.highlights}
-                  direction={event.direction}
-                />
-              </>
-            )}
-          </div>
-          {key < events.length - 1 && <Circle />}
-        </Fragment>
-      ))}
-      <Circle />
-    </motion.div>
-  );
+ return (
+   <motion.ol 
+     ref={timelineRef}
+     className="relative border-s-4 border-gray-200/20 dark:border-gray-700"
+   >
+     <motion.div 
+       style={{ 
+         scaleY: scrollYProgress, 
+         transformOrigin: 'top' 
+       }}
+       className="absolute top-0 left-[-3.5px] w-1 bg-violet-200 h-full z-0"
+     />
+
+     {events.map((event, index) => (
+       <motion.li 
+         key={index} 
+         initial="hidden"
+         whileInView="visible"
+         viewport={{ once: true, amount: 0.3 }}
+         variants={itemVariants}
+         className="mb-10 ms-4 relative z-10"
+       >
+         <div 
+           className="absolute w-3 h-3 bg-violet-500 rounded-full mt-1.5 -start-1.5 border border-white"
+           style={{
+             position: 'absolute',
+             left: '-25px',
+             top: '6px'
+           }}
+         ></div>
+     <h3 className="text-lg font-semibold text-violet-200 dark:text-white">
+           {event.position}
+         </h3>      
+         <time className="mb-1 text-sm font-normal leading-none text-gray-400">
+           {event.startDate} - {event.endDate}
+         </time>
+         <p className="mb-4 text-base font-normal text-gray-500">
+           {event.company}
+         </p>
+         <ul className="text-base font-normal text-gray-500 list-disc list-inside space-y-2">
+           {event.highlights.map((highlight, highlightIndex) => (
+             <li key={highlightIndex}>{highlight}</li>
+           ))}
+         </ul>
+       </motion.li>
+     ))}
+   </motion.ol>
+ );
 };
 
 export default Timeline;

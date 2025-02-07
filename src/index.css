@@ -318,9 +318,9 @@ body {
 }
 @layer utilities {
 	.containers {
-		@apply lg:max-w-5xl
+	  @apply lg:max-w-5xl;
 	}
-}
+  }
 .loading-container {
 	height: 100vh;
 	width: 100vw;

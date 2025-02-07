@@ -19,7 +19,7 @@ const Projects = () => {
           {portfolio.map((project, projectIndex) => (
             <Card
               key={project.projectIndex}
-              className="bg-[#0c0323] rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 pt-8 px-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-16 lg:px-20 sticky"
+              className="bg-[#0c0323] rounded-3xl z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 pt-8 px-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-16 lg:px-20 sticky"
               style={{
                 top: `calc(64px + ${projectIndex * 40}px)`,
               }}
@@ -32,14 +32,14 @@ const Projects = () => {
                     </h3>
                     <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
-                    {/* Animated Tags */}
+                 
                     <div className="flex flex-wrap gap-4 mt-6">
                       {project.tags.map((tag) => (
                         <div
                           key={`${project.name}-${tag.name}`}
                           className="relative"
                         >
-                          {/* Animated glow effect */}
+                   
                           <div className="absolute inset-0 -z-10">
                             <div
                               className="absolute inset-0 rounded-full opacity-20 blur-xl animate-pulse"
