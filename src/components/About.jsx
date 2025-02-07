@@ -29,7 +29,7 @@ const About = () => {
         </ScrollAnimation>
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8  md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1 ">
+            <Card className="h-[320px] rounded-3xl md:col-span-2 lg:col-span-1 ">
               <CardHeader
                 title="My Bio"
                 description="Know more about me"
@@ -38,7 +38,7 @@ const About = () => {
 
               <BioContent studyType={studyType} />
             </Card>
-            <Card className="h-[320px]  md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] rounded-3xl md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="My ToolKit"
                 description="Explore technology, skills and tools used to build amazing
@@ -58,7 +58,7 @@ const About = () => {
             </Card>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
-            <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] rounded-3xl p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Beyond the code"
                 description="Explore my interests and hobbies beyond tech"
@@ -84,7 +84,7 @@ const About = () => {
                 ))}
               </div>
             </Card>
-            <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
+            <Card className="h-[320px] p-0 rounded-3xl relative md:col-span-2 lg:col-span-1">
               <motion.div
                 variants={slideIn("right", "tween", 0.2, 1)}
                 className="xl:flex-1 xl:h-auto xl:mt-8 md:h-[420px] h-[320px] mx-auto  lg:w-full lg:h-[350px] md:mt-0"

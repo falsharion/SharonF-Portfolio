@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <BackgroundGradientAnimation>
       <section className="z-10 absolute w-full h-screen mx-auto flex flex-col">
-        <div className="absolute inset-0 top-[70px] max-w-7xl mx-3 flex flex-row items-start pb-6 gap-5 pr-6">
+        <div className="absolute z-20 inset-0 top-[70px] max-w-7xl mx-3 flex flex-row items-start pb-6 gap-5 pr-6">
           <div className="flex flex-col justify-center items-center mt-5"></div>
           <div>
             <ScrollAnimation>
@@ -37,7 +37,7 @@ const Hero = () => {
                 <div className="flex flex-wrap gap-4 mt-6">
                   {technologies.map((tech) => (
                     <div key={tech} className="relative">
-                      {/* Animated glow effect */}
+                     
                       <div className="absolute inset-0 -z-10">
                         <div className="absolute inset-0 bg-violet-200 rounded-full opacity-20 blur-xl animate-pulse" />
                         <div
@@ -61,14 +61,14 @@ const Hero = () => {
       transform: translate(10%, 10%) scale(0.9);
     }
   }
-`}</style>
+             `}</style>
                     </div>
                   ))}
                 </div>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={400}>
-              <div className="flex font-serif justify-evenly md:justify-start mt-7 relative z-20 gap-3 md:gap-5 items-center">
+              <div className="flex font-serif justify-evenly md:justify-start mt-7 relative z-30 gap-3 md:gap-5 items-center">
                 <a
                   href={resume}
                   download="FalomoSharon_Resume.pdf"
@@ -94,7 +94,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end absolute inset-0 md:inset-[5rem] h-full w-full md:w-11/12 lg:w-full lg:inset-1 bottom-0 z-10 mt-40">
+        <div className="flex justify-center md:justify-end absolute z-0 inset-0 md:inset-[5rem] h-full w-full md:w-11/12 lg:w-full lg:inset-1 bottom-0  mt-40">
           <Lottie animationData={codingCoffee} loop={true} />
         </div>
 

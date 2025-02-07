@@ -1,5 +1,5 @@
 import Home from "./Home";
 import Contact from "./Contact";
-import Work from "./Work";
+import Experience from "./Experience";
 
-export { Home, Contact, Work };
+export { Home, Contact, Experience };

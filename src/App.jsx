@@ -12,10 +12,10 @@ const Home = lazy(
 			default: module.Home,
 		}))
 );
-const Workpage = lazy(
+const Experiencepage = lazy(
 	async () =>
 		await import("./pages").then((module) => ({
-			default: module.Work,
+			default: module.Experience,
 		}))
 );
 const ContactPage = lazy(
@@ -38,7 +38,7 @@ const App = () => {
 						<Routes>
 							<Route path='/' element={<Home />} />
 							<Route path='contact' element={<ContactPage />} />
-							<Route path='Experience' element={<Workpage />} />
+							<Route path='Experience' element={<Experiencepage />} />
 							<Route path='*' element={<RedirectToHome />} />
 						</Routes>
 						<Footer />

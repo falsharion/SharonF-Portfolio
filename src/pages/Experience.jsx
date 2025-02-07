@@ -9,9 +9,9 @@ import { TabsDemo}  from "../components/TabsDemo";
 
 
 
-const Works = () => {
+const Experience = () => {
   return (
-    <div className="h-full px-8 md:px-14 pb-14">
+    <div className=" px-8 md:px-14 pb-14">
       <motion.div
         variants={textVariant}
         className="mt-12"
@@ -22,11 +22,13 @@ const Works = () => {
       </motion.div>
       <Timeline events={resumeData.work} />
 
-	  <TabsDemo />
+
+<div className="pt-10"><TabsDemo /></div>
+	    
 
 
     </div>
   );
 };
 
-export default Works;
+export default Experience;

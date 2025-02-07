@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const Circle = () => {
@@ -12,11 +12,9 @@ const Circle = () => {
   );
 };
 
-const Pillar = ({ index, totalEvents }) => {
-  const { scrollYProgress } = useScroll();
-
+const Pillar = ({ index, totalEvents, scrollProgress }) => {
   const pillarProgress = useTransform(
-    scrollYProgress,
+    scrollProgress,
     [index / totalEvents, (index + 1) / totalEvents],
     [0, 1]
   );
@@ -54,13 +52,12 @@ const EventCard = ({
         stiffness: 100,
       }}
       viewport={{ once: true, amount: 0.3 }}
-      className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl 
-                   flex flex-col gap-y-2 border-none  shadow-md rounded-xl p-4"
+      className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl flex flex-col gap-y-2 border-none shadow-md rounded-xl p-4"
     >
-      <p className="text-violet-300 font-bold text-lg md:text-2xl  lg:text-4xl border-b">
+      <p className="text-violet-300 font-bold text-lg md:text-2xl lg:text-4xl border-b">
         {heading}
       </p>
-      <div className=" md:flex font-serif items-center justify-between text-sm md:text-xl lg:text-2xl text-white/70">
+      <div className="md:flex font-serif items-center justify-between text-sm md:text-xl lg:text-2xl text-white/70">
         {subheading}
         <div className="md:text-sm lg:text-xl text-white/70">
           {startyear} - {endyear}
@@ -76,8 +73,16 @@ const EventCard = ({
 };
 
 const Timeline = ({ events }) => {
+
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
     <motion.div
+      ref={timelineRef}
       initial="hidden"
       className="flex flex-col gap-y-3 w-full my-4 lg:px-16"
     >
@@ -87,7 +92,11 @@ const Timeline = ({ events }) => {
           <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 md:gap-x-6 items-center mx-auto">
             {event.direction === "left" ? (
               <>
-                <Pillar index={key} totalEvents={events.length} />
+                <Pillar
+                  index={key}
+                  totalEvents={events.length}
+                  scrollProgress={scrollYProgress}
+                />
                 <EventCard
                   heading={event.position}
                   subheading={event.company}
@@ -101,7 +110,11 @@ const Timeline = ({ events }) => {
             ) : (
               <>
                 <div></div>
-                <Pillar index={key} totalEvents={events.length} />
+                <Pillar
+                  index={key}
+                  totalEvents={events.length}
+                  scrollProgress={scrollYProgress}
+                />
                 <EventCard
                   heading={event.position}
                   subheading={event.company}

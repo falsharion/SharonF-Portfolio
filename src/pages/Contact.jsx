@@ -56,11 +56,11 @@ function Contact() {
 			);
 	};
 	return (
-		<div className='relative z-0 h-screen flex justify-center items-center'>
+		<div className='relative z-0 h-screen flex justify-center mb-20 md:mb-auto items-center'>
 			<div className='xl:flex-row flex-col-reverse flex gap-10 overflow-hidden w-full'>
 				<motion.div
 					variants={slideIn("left", "tween", 0.2, 1)}
-					className='flex-[0.75] py-5 bg-violet-950/30 px-8 rounded-2xl'
+					className='flex-[0.75] md:py-5 bg-violet-950/30 px-8 rounded-2xl'
 				>
 					<p className={styles.sectionSubText}>Get in touch</p>
 					<h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -122,11 +122,11 @@ function Contact() {
 				
                 <motion.div
                     variants={slideIn("right", "tween", 0.2, 1)}
-                    className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] flex justify-center items-center'
+                    className='xl:flex-1 xl:h-auto md:h-[550px] pt-14 h-[350px] flex justify-center items-center'
                 >
                     <Lottie 
                         animationData={emailIcon} 
-                        className='w-full h-full object-contain'
+                        className='w-64 md:w-full h-full pt-10 md:pt-10 object-contain'
                         loop={true}
                     />
                 </motion.div>
