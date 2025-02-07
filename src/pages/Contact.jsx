@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
@@ -10,7 +10,6 @@ import Lottie from 'lottie-react';
 import emailIcon from '../assets/emailicon.json';
 
 
-
 function Contact() {
 	const [form, setForm] = useState({
 		name: "",
@@ -18,7 +17,9 @@ function Contact() {
 		message: "",
 	});
 	const [sending, setSending] = useState(false);
+	const [messageSent, setMessageSent] = useState(false);
 	const formRef = useRef();
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setForm({ ...form, [name]: value });
@@ -35,7 +36,7 @@ function Contact() {
 					User_name: form.name,
 					to_name: "Sharon",
 					User_email: form.email,
-					to_email:  import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+					to_email: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 					message: form.message,
 				},
 				import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -48,19 +49,31 @@ function Contact() {
 						message: "",
 					});
 					setSending(false);
-					console.log('message sent')
+					setMessageSent(true);
+					
+			
+					setTimeout(() => {
+						setMessageSent(false);
+					}, 25000);
 				},
 				(error) => {
 					console.log(error);
+					setSending(false);
 				}
 			);
 	};
+
 	return (
 		<div className='relative z-0 h-screen flex justify-center mb-20 md:mb-auto items-center'>
-			<div className='xl:flex-row flex-col-reverse flex gap-10 overflow-hidden w-full'>
+			{messageSent && (
+				<div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg animate-bounce">
+					Message sent successfully!
+				</div>
+			)}
+			<div className=' lg:flex-row flex-col-reverse flex gap-10 overflow-hidden w-full'>
 				<motion.div
 					variants={slideIn("left", "tween", 0.2, 1)}
-					className='flex-[0.75] md:py-5 bg-violet-950/30 px-8 rounded-2xl'
+					className='flex-[0.75] md:py-5 bg-violet-950/30 px-8 pt-3 rounded-2xl'
 				>
 					<p className={styles.sectionSubText}>Get in touch</p>
 					<h3 className={styles.sectionHeadText}>Contact.</h3>

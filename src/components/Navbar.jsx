@@ -50,7 +50,7 @@ const Navbar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <p className="text-white text-[18px] px-2 font-bold cursor-pointer flex">
+            <p className="text-white text-md px-2 font-bold cursor-pointer flex">
               Falomo Sharon &nbsp;
             </p>
           </Link>

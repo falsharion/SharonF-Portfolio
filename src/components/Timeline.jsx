@@ -7,7 +7,7 @@ const Circle = () => {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-violet-200 rounded-full w-4 h-4 -ml-1"
+      className="bg-violet-200 relative z-10 rounded-full w-4 h-4 -ml-1"
     ></motion.div>
   );
 };
@@ -20,8 +20,8 @@ const Pillar = ({ index, totalEvents, scrollProgress }) => {
   );
 
   return (
-    <div className="relative w-2 h-full mx-auto">
-      <div className="absolute inset-0 bg-white/15 rounded-t-full rounded-b-full"></div>
+    <div className="relative z-0 w-2 h-full mx-auto">
+      <div className="absolute  inset-0 bg-white/15 rounded-t-full rounded-b-full"></div>
 
       <motion.div
         style={{
@@ -47,12 +47,12 @@ const EventCard = ({
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{
-        duration: 0.6,
+        duration: 0.5,
         type: "spring",
         stiffness: 100,
       }}
-      viewport={{ once: true, amount: 0.3 }}
-      className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl flex flex-col gap-y-2 border-none shadow-md rounded-xl p-4"
+      viewport={{ once: true, amount: 0.1 }}
+      className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl flex flex-col gap-y-2 border-none shadow-md rounded-xl px-4"
     >
       <p className="text-violet-300 font-bold text-lg md:text-2xl lg:text-4xl border-b">
         {heading}
@@ -84,7 +84,7 @@ const Timeline = ({ events }) => {
     <motion.div
       ref={timelineRef}
       initial="hidden"
-      className="flex flex-col gap-y-3 w-full my-4 lg:px-16"
+      className=" relative flex flex-col gap-y-3 w-full my-4 lg:px-16"
     >
       <Circle />
       {events.map((event, key) => (

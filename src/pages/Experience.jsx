@@ -11,7 +11,7 @@ import { TabsDemo}  from "../components/TabsDemo";
 
 const Experience = () => {
   return (
-    <div className=" px-8 md:px-14 pb-14">
+    <div className=" flex flex-col h-full px-8 md:px-14 pb-14 overflow-x-hidden">
       <motion.div
         variants={textVariant}
         className="mt-12"

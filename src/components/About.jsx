@@ -38,7 +38,7 @@ const About = () => {
 
               <BioContent studyType={studyType} />
             </Card>
-            <Card className="h-[320px] rounded-3xl md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] z-0 rounded-3xl md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="My ToolKit"
                 description="Explore technology, skills and tools used to build amazing
@@ -47,13 +47,13 @@ const About = () => {
               />
               <ToolkitItems
                 items={toolkitItems}
-                className=""
+                className="border-2 border-violet-200/20"
                 itemsWrapperClassName="animate-moveLeft [animation-duration:30s]"
               />
               <ToolkitItems
                 items={toolkitItems}
-                className="mt-6 "
-                itemsWrapperClassName="animate-moveRight [animation-duration:15s] "
+                className="border-2 mt-1 border-violet-200/20 "
+                itemsWrapperClassName="animate-moveRight [animation-duration:35s] "
               />
             </Card>
           </div>
