@@ -31,7 +31,6 @@ export {
   reactjs,
   tailwind,
   typescript,
-  codedrops,
   EHC,
   recipe,
   scissors,

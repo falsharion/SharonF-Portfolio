@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { navLinks } from "../constants";
 import { menu, close } from "../assets";
-import ScrollAnimation from "./ui/scrollanimation";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -15,7 +14,6 @@ const Navbar = () => {
     setActive(location.pathname);
   }, [location]);
 
-  // Scroll function
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -23,11 +21,9 @@ const Navbar = () => {
     }
   };
 
-  // Handle menu clicks
   const handleClick = (id) => {
     if (id === "projects") {
       if (location.pathname !== "/") {
-        // Navigate to home first, then scroll after a delay
         navigate("/");
         setTimeout(() => handleScroll("projects-section"), 500);
       } else {
@@ -79,8 +75,6 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
-          {/* Mobile Menu */}
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <img
               src={menu}
@@ -88,22 +82,17 @@ const Navbar = () => {
               className="w-[28px] h-[28px] object-contain cursor-pointer"
               onClick={() => setToggle(true)}
             />
-
-            {/* Overlay Background */}
             {toggle && (
               <div
                 className="fixed inset-0 bg-black/50 z-10"
                 onClick={() => setToggle(false)}
               />
             )}
-
-            {/* Sliding Sidebar Menu */}
             <div
               className={`fixed top-0 right-0 w-1/2 h-full bg-black p-6 z-20 shadow-lg transition-all duration-500 ${
                 toggle ? "translate-x-0" : "translate-x-full"
               }`}
             >
-              {/* Close Button */}
               <span
                 className="absolute top-4 right-4 text-white text-2xl cursor-pointer"
                 onClick={() => setToggle(false)}
@@ -113,23 +102,23 @@ const Navbar = () => {
 
               <ul className="list-none flex flex-col gap-6 mt-10">
                 {navLinks.map((link) => (
-                  <ScrollAnimation>
-                    <li
-                      key={link.id}
-                      className={`font-medium text-[18px] hover:text-violet-200 cursor-pointer ${
-                        active === `/${link.desktop}`
-                          ? "text-white"
-                          : "text-gray-400"
-                      }`}
-                      onClick={() => handleClick(link.id)}
-                    >
-                      {link.id === "projects" ? (
-                        <span>{link.title}</span>
-                      ) : (
-                        <Link to={link.desktop}>{link.title}</Link>
-                      )}
-                    </li>
-                  </ScrollAnimation>
+                  <li key={link.id}>
+                      <div
+                        className={`font-medium text-[18px] hover:text-violet-200 cursor-pointer ${
+                          active === `/${link.desktop}`
+                            ? "text-white"
+                            : "text-gray-400"
+                        }`}
+                        onClick={() => handleClick(link.id)}
+                      >
+                        {link.id === "projects" ? (
+                          <span>{link.title}</span>
+                        ) : (
+                          <Link to={link.desktop}>{link.title}</Link>
+                        )}
+                      </div>
+                   
+                  </li>
                 ))}
               </ul>
             </div>
