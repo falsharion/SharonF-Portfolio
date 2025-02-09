@@ -46,7 +46,8 @@ export const ModalTrigger = ({
       {children}
     </button>)
   );
-};export const ModalBody = ({ children, className }) => {
+};
+export const ModalBody = ({ children, className }) => {
   const { open } = useModal();
   const modalRef = useRef(null);
   const { setOpen } = useModal();
@@ -55,12 +56,10 @@ export const ModalTrigger = ({
 
   useEffect(() => {
     if (open) {
-      // Store current scroll position
       scrollPositionRef.current = window.scrollY;
       document.body.style.overflow = 'hidden';
       document.body.style.height = '100%';
     } else {
-      // Restore scroll behavior without moving position
       document.body.style.overflow = 'auto';
       document.body.style.height = 'auto';
     }
@@ -105,7 +104,7 @@ export const ModalContent = ({
 }) => {
   return (
     <div className={cn(
-      "flex flex-col flex-1 px-8 pb-8 pt-12 md:p-10 overflow-y-auto touch-pan-y h-full", 
+      "flex flex-col flex-1 px-5 pb-6 pt-12 md:p-10 overflow-y-auto touch-pan-y h-full", 
       className
     )}>
       {children}

@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <BackgroundGradientAnimation>
-      <section className="z-10 absolute w-full h-screen mx-auto flex flex-col">
+      <section className="z-[1] absolute w-full h-screen mx-auto flex flex-col">
         <div className="absolute z-20 inset-0 top-[70px] max-w-7xl mx-3 flex flex-row items-start pb-6 gap-5 pr-6">
           <div className="flex flex-col justify-center items-center mt-5"></div>
           <div>
@@ -94,7 +94,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end absolute z-0 inset-0 md:inset-[5rem] h-full w-full md:w-11/12 lg:w-full lg:inset-1 bottom-0  mt-40">
+        <div className="flex justify-center md:justify-end absolute z-auto inset-0 md:inset-[5rem] h-full w-full md:w-11/12 lg:w-full lg:inset-1 bottom-0  mt-40">
           <Lottie animationData={codingCoffee} loop={true} />
         </div>
 
