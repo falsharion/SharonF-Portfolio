@@ -103,6 +103,8 @@ const getTagColor = (color) => {
     "green-text-gradient": "#f7dbff", 
     "orange-text-gradient": "#f97316", 
     "pink-text-gradient": "#ec4899", 
+    "violet-text-gradient": "#ea89ff",
+    
   };
   return colorMap[color] || "#64748b"; 
 };

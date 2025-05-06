@@ -2,6 +2,7 @@ import {
   EHC,
   recipe,
   scissors,
+  albuelection,
 } from "../assets";
 
 import workshopcert from "../assets/company/workshopcert.png"
@@ -214,7 +215,7 @@ const portfolio = [
     name: "Recipe Finder",
     projectIndex: 2,
     description:
-      "A Recipe finder app that fetches recipies according to the cuisines and you can search for ingredients in the search bar and it will give recipes that contain the ingredient",
+      "An AI powered full stack recipe finder app that lets users search for meals by ingredients and delivers personalized recipe suggestions. It uses Hugging Face NLP models to classify recipes by meal time (e.g., breakfast, dinner) and dietary type (e.g., vegan, keto), and also summarizes cooking steps for quicker understanding.",
     tags: [
       {
         name: "React",
@@ -232,15 +233,49 @@ const portfolio = [
         name: "Spoonacular Api",
         color: "pink-text-gradient",
       },
+      {
+        name: "Hugging Face Api",
+        color: "violet-text-gradient",
+      },
     ],
     image: recipe,
     source_code_link:"https://recipefindersearch.netlify.app/",
   },
   {
-    name: "Scissors",
+    name: "ALBU Election App",
     projectIndex: 3,
     description:
-      "  link management platform that enable users to shorten, customize, and share links while providing a dashboard to track clicks, locations, and devices for better analytics. ",
+      "To fix the flaws of student elections in my University run on Google Forms like duplicate votes and poor verification. I built a full stack voting system for 300+ students. It features OTP based login, matric number verification, RLS to prevent multiple votes, and an admin dashboard to monitor real time results. This solution improved vote integrity, streamlined the process, and gave students a smoother, secure election experience.",
+    tags: [
+      {
+        name: "Next js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Tailwindcss",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Supabase",
+        color: "orange-text-gradient"
+      },
+      {
+        name: "Rechart",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Nodemailer",
+        color: "violet-text-gradient",
+      },
+    ],
+    image: albuelection,
+    source_code_link:"https://albuelection.netlify.app/",
+  },
+  {
+    name: "Scissors",
+    projectIndex: 4,
+    description:
+      "link management platform that enable users to shorten, customize, and share links while providing a dashboard to track clicks, locations, and devices for better analytics. ",
     tags: [
       {
         name: "React",

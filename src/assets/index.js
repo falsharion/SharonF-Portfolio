@@ -13,6 +13,7 @@ import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import codedrops from './company/codedrops.png';
+import albuelection from './albuelection.png'
 import scissors from './scissors.png';
 import recipe from './recipe.png';
 import EHC from './EHC.png';
@@ -33,5 +34,6 @@ export {
   typescript,
   EHC,
   recipe,
+  albuelection,
   scissors,
 };
