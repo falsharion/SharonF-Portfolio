@@ -23,6 +23,8 @@ import tailwind from "../assets/tech/tailwind.png";
 import typescript from "../assets/tech/typescript.png";
 import Nodejs from "../assets/tech/node.png";
 import threejs from "../assets/tech/threejs.png";
+import express from "../assets/tech/express.png"
+import mongodb from "../assets/tech/mongodb.png"
 
 
 
@@ -76,6 +78,14 @@ const toolkitItems = [
   {
     title: "Nodejs",
     icon: Nodejs,
+  },
+  {
+    title: "Express js",
+    icon: express,
+  },
+  {
+    title: "Mongo db",
+    icon: mongodb,
   },
 ];
 const hobbies = [
@@ -185,37 +195,36 @@ const gallery = [
 
 const portfolio = [
   {
-    name: "EmpowerHerCommunity Website",
+    name: "ALBU Election App",
     projectIndex: 1,
     description:
-      "A website for a non-profit organization that helps women trasition into tech irrespective of their background.",
+      "I built a full stack voting system for 300+ students in my department. It features OTP based login, matric number verification, RLS to prevent multiple votes, and an admin dashboard to monitor real time results. This solution improved vote integrity, streamlined the process, and gave students a smoother, secure election experience.",
     tags: [
       {
-        name: "Nextjs",
+        name: "Next js",
         color: "blue-text-gradient",
       },
       {
-        name: "Tailwind CSS",
+        name: "Tailwindcss",
         color: "green-text-gradient",
       },
       {
-        name: "Javascript",
+        name: "Supabase",
         color: "orange-text-gradient"
       },
       {
-        name: "React js",
+        name: "Rechart",
         color: "pink-text-gradient",
       },
     ],
-    image: EHC,
-    source_code_link:"https://empowerhercommunity.net/",
+    image: albuelection,
+    source_code_link:"https://albuelection.netlify.app/",
   },
-
   {
     name: "Recipe Finder",
     projectIndex: 2,
     description:
-      "An AI powered full stack recipe finder app that lets users search for meals by ingredients and delivers personalized recipe suggestions. It uses Hugging Face NLP models to classify recipes by meal time (e.g., breakfast, dinner) and dietary type (e.g., vegan, keto), and also summarizes cooking steps for quicker understanding.",
+      "AI powered full stack recipe finder app that lets users search for meals by ingredients and delivers personalized recipe suggestions. It uses Hugging Face NLP models to classify recipes by meal time and dietary type and also summarizes cooking steps for quicker understanding.",
     tags: [
       {
         name: "React",
@@ -241,35 +250,32 @@ const portfolio = [
     image: recipe,
     source_code_link:"https://recipefindersearch.netlify.app/",
   },
+  
   {
-    name: "ALBU Election App",
+    name: "EmpowerHerCommunity Website",
     projectIndex: 3,
     description:
-      "To fix the flaws of student elections in my University run on Google Forms like duplicate votes and poor verification. I built a full stack voting system for 300+ students. It features OTP based login, matric number verification, RLS to prevent multiple votes, and an admin dashboard to monitor real time results. This solution improved vote integrity, streamlined the process, and gave students a smoother, secure election experience.",
+      "A website for a non-profit organization that helps women trasition into tech irrespective of their background.",
     tags: [
       {
-        name: "Next js",
+        name: "Nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "Tailwindcss",
+        name: "Tailwind CSS",
         color: "green-text-gradient",
       },
       {
-        name: "Supabase",
+        name: "Javascript",
         color: "orange-text-gradient"
       },
       {
-        name: "Rechart",
+        name: "React js",
         color: "pink-text-gradient",
       },
-      {
-        name: "Nodemailer",
-        color: "violet-text-gradient",
-      },
     ],
-    image: albuelection,
-    source_code_link:"https://albuelection.netlify.app/",
+    image: EHC,
+    source_code_link:"https://empowerhercommunity.net/",
   },
   {
     name: "Scissors",
