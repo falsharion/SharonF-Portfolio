@@ -6,7 +6,7 @@ import { BackgroundGradientAnimation } from "../components/ui/background-gradien
 import { FlipWords } from "../components/ui/flip-words";
 import { FaDownload } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import resume from "../assets/Frontenddeveloperresume.pdf";
+import resume from "../assets/FalomosharonsimisolaFrontendEngineercv.pdf";
 import ScrollAnimation from "./ui/scrollanimation";
 
 const Hero = () => {
