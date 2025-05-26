@@ -71,7 +71,7 @@ const Hero = () => {
               <div className="flex font-serif justify-evenly md:pt-6 md:justify-start mt-7 relative z-30 gap-3 md:gap-5 items-center">
                 <a
                   href={resume}
-                  download="FalomoSharon_Resume.pdf"
+                  download="FalomosharonFrontenddeveloperreume.pdf"
                   className="rounded-lg text-lg flex items-center justify-center md:py-3 md:w-36 md:text-md w-full py-2 bg-violet-200  text-violet-950 font-serif"
                 >
                   Resume{" "}
